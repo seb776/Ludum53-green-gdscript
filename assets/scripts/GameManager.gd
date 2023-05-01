@@ -43,6 +43,7 @@ func NewGame() -> void:
 	self.PlanetPosition = 0
 	self.MustShowCreditsFirst = false
 	self.IsDeath = false
+	self.ClearMission()
 
 func TimeForTheLastTravel() -> bool:
 	return WinCash <= cash
@@ -50,11 +51,15 @@ func TimeForTheLastTravel() -> bool:
 func LoadScene(scenePath) -> void:
 	get_tree().change_scene_to_file(scenePath)
 
+func CanLandOnPlanet(i) -> bool:
+	var isFinalPlanet:bool = i == lastMissionPlanet
+	return ((!IsFinalMission() && !isFinalPlanet) || (IsFinalMission() && isFinalPlanet))
+
 func LoadMenu() -> void:
 	LoadScene(_menuScene)
 
 func LoadMission(mission) -> void:
-	_missionName = mission.Name
+	_missionName = mission.name
 	_missionPlanetTarget = mission.planetTarget
 	_missionReward = mission.reward
 

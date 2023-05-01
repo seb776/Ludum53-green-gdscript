@@ -13,7 +13,13 @@ var PlanetNameLabel:Label
 var LandingLabel:Label
 
 @export
-var PlanetSprite:Sprite2D
+var ColorA:Color
+
+@export
+var ColorB:Color
+
+@export
+var planet:PlanetPrefab
 
 @export
 var ExitShipPosition:Node2D
@@ -23,7 +29,8 @@ var _gameManager:GameManager
 func _ready() -> void:
 	_gameManager = get_node("/root/GameManager")
 	LandingLabel.visible = false
-	PlanetSprite.texture = PlanetTexture
+	planet.ColorA = ColorA
+	planet.ColorB = ColorB
 	if PlanetNameLabel != null:
 		PlanetNameLabel.text = "[" + _gameManager.PlanetNames[PlanetId] + "]"
 
@@ -37,7 +44,7 @@ func isFinalPlanet() -> bool:
 func SetLandingLabel(visible, node) -> void:
 	var c:CharacterBody2D = node as CharacterBody2D
 	var finalMissionActive:bool = _gameManager.IsFinalMission()
-	if c != null && ((!finalMissionActive && !isFinalPlanet()) || (finalMissionActive && isFinalPlanet())):
+	if c != null && _gameManager.CanLandOnPlanet(PlanetId):
 		LandingLabel.visible = visible
 
 func OnBodyEntered(body) -> void:

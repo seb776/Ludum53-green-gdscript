@@ -29,6 +29,7 @@ func _process(delta) -> void:
 			LabelQuit.text = "X"
 	if Input.is_action_just_released("enter"):
 		if _isOnRetry:
+			_gameManager.AbortTheMission()
 			_gameManager.IsDeath = false
 			_gameManager.LandingOn(_gameManager.PlanetPosition)
 		else:

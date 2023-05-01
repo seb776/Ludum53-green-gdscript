@@ -7,5 +7,5 @@ func _process(delta) -> void:
 	pass
 
 func SizeChange() -> void:
-	self.PivotOffset = (self.Size.x, self.PivotOffset.y)
+	self.PivotOffset = Vector2(self.Size.x, self.PivotOffset.y)
 

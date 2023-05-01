@@ -1,14 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhdlna004ejq4"]
+[gd_scene load_steps=20 format=3]
 
-[ext_resource type="Script" path="res://assets/prefabs/planets/GroundPlanet.gd" id="1_u4bpg"]
+[ext_resource type="Script" path="res://assets/scripts/GroundPlanet.gd" id="1_u4bpg"]
 [ext_resource type="Material" uid="uid://criasgmighl7f" path="res://assets/shaders/landscapes/landscape01Bis/Landscape01Bis_Back_ShaderMat.tres" id="2_y6xu0"]
 [ext_resource type="Texture2D" uid="uid://p08ghl065lgu" path="res://assets/UI/SimpleBorder.png" id="3_y5oi0"]
-[ext_resource type="Script" path="res://scenes/game/Follow.gd" id="4_jaxkp"]
+[ext_resource type="Script" path="res://assets/scripts/Follow.gd" id="4_jaxkp"]
 [ext_resource type="Material" uid="uid://dw8qjwcskyh88" path="res://assets/shaders/LayerOpacityShaderMat.tres" id="5_7ya3m"]
 [ext_resource type="Texture2D" uid="uid://b05cqcwsbx6lj" path="res://assets/sprites/Landscape3.png" id="6_78a4e"]
 [ext_resource type="Script" path="res://assets/scripts/DoTheParallax.gd" id="7_dsiop"]
 [ext_resource type="Texture2D" uid="uid://by6w54irxl4gt" path="res://assets/sprites/space/Ship.png" id="8_6e86q"]
-[ext_resource type="Script" path="res://assets/prefabs/planets/LastMission.gd" id="8_8sdpe"]
+[ext_resource type="Script" path="res://assets/scripts/LastMission.gd" id="8_8sdpe"]
 [ext_resource type="FontFile" uid="uid://bda4nsl7usbve" path="res://assets/fonts/arcade_classic_2/ARCADECLASSIC.TTF" id="9_ql35q"]
 [ext_resource type="PackedScene" uid="uid://dp4lgex5gobjt" path="res://assets/prefabs/PlanetPlayer.tscn" id="9_yy6ni"]
 [ext_resource type="PackedScene" uid="uid://b4tdxjvi8p1ah" path="res://assets/prefabs/Landscapes/landscape_01.tscn" id="10_6l0yq"]
@@ -24,6 +24,7 @@ gradient = SubResource("Gradient_hk26n")
 
 [sub_resource type="LabelSettings" id="LabelSettings_mo5pj"]
 font = ExtResource("9_ql35q")
+font_size = 12
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_van6s"]
 radius = 29.533
@@ -67,7 +68,7 @@ offset_left = -185.667
 offset_top = -64.0
 offset_right = 164.333
 offset_bottom = -28.0
-text = "E - Open the misterious package"
+text = "E  -  Open   the   misterious   package"
 label_settings = SubResource("LabelSettings_mo5pj")
 
 [node name="RockIt" type="Sprite2D" parent="CrashedShip"]
