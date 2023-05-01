@@ -9,16 +9,16 @@ var Rocket:LandscapeRocket
 var _gameManager: GameManager
 
 @export
-var labels:Array
+var labels:PackedStringArray
 
 @export
-var rewards:Array
+var rewards:PackedInt32Array
 
 @export
-var keys:Array
+var keys:PackedStringArray
 
 @export
-var planetTarget:Array
+var _planetTarget:PackedInt32Array
 
 var MissionPrefabs:PackedScene
 
@@ -26,7 +26,6 @@ func _ready() -> void:
 	MissionPrefabs = (preload("res://assets/prefabs/Mission/Mission.tscn") as PackedScene)
 	MissionSelection.visible = false
 	_gameManager = get_node("/root/GameManager")
-	CheckAllOk()
 	if _gameManager.TimeForTheLastTravel():
 		SetLastMission()
 	else:
@@ -34,14 +33,8 @@ func _ready() -> void:
 		while i < labels.size():
 			var missionComponent = MissionPrefabs.instantiate()
 			MissionSelection.add_child(missionComponent)
-			self.SetMission(labels[i], rewards[i], keys[i], planetTarget[i], missionComponent)
+			self.SetMission(labels[i], rewards[i], keys[i], _planetTarget[i], missionComponent)
 			i += 1
-
-func CheckAllOk() -> void:
-	var n = labels.size()
-	if n != rewards.size() || n != keys.size() || n != planetTarget.size():
-		printerr("Impossible to parse collection labels, rewards, keys and planetTarget must have the same size !")
-		printerr("label: " + n + ", rewards: " + rewards.size() + ", keys: " + keys.size() + ", planetTarget:" + planetTarget.size())
 
 func SetLastMission() -> void:
 	for child in MissionSelection.get_children():
@@ -96,10 +89,10 @@ func RefreshPossibleMission() -> void:
 			m.setDisable(MissionIsPossible(i))
 		i += 1
 
-func SetMissionSelectVisible(visible, body) -> void:
+func SetMissionSelectVisible(visible_, body) -> void:
 	var p:CharacterBody2D = body as CharacterBody2D
 	if p != null && !_gameManager.MissionInProgress():
-		MissionSelection.visible = visible
+		MissionSelection.visible = visible_
 
 func OnBodyEntered(body) -> void:
 	self.SetMissionSelectVisible(true, body)

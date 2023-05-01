@@ -9,5 +9,5 @@ func _ready() -> void:
 	_gameManager = get_node("/root/GameManager")
 
 func _process(delta) -> void:
-	CashLabel.text = str(_gameManager.cash)
+	CashLabel.text = str(_gameManager.cash) + " / " + str((_gameManager.WinCash + _gameManager.WinCash * 0.20))
 

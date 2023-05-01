@@ -41,11 +41,10 @@ func _process(delta) -> void:
 func isFinalPlanet() -> bool:
 	return _gameManager.lastMissionPlanet == PlanetId
 
-func SetLandingLabel(visible, node) -> void:
+func SetLandingLabel(visible_, node) -> void:
 	var c:CharacterBody2D = node as CharacterBody2D
-	var finalMissionActive:bool = _gameManager.IsFinalMission()
 	if c != null && _gameManager.CanLandOnPlanet(PlanetId):
-		LandingLabel.visible = visible
+		LandingLabel.visible = visible_
 
 func OnBodyEntered(body) -> void:
 	self.SetLandingLabel(true, body)

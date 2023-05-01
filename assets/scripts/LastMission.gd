@@ -13,10 +13,10 @@ func _process(delta) -> void:
 	if Input.is_action_just_released("mission_one") && label.visible:
 		_gameManager.MissionSucces()
 
-func setLabelVisible(visible, body) -> void:
+func setLabelVisible(visible_, body) -> void:
 	var p:CharacterBody2D = body as CharacterBody2D
 	if p != null:
-		label.visible = visible
+		label.visible = visible_
 
 func OnBodyEntered(body) -> void:
 	self.setLabelVisible(true, body)

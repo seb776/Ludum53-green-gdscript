@@ -13,7 +13,7 @@ var PlanetPosition: int
 
 var IsDeath: bool
 
-var PlanetNames:Array = ["Fecaloria", "Odorix", "Etronis", "Porcelainus"]
+var PlanetNames:PackedStringArray = ["Fecaloria", "Odorix", "Etronis", "Porcelainus"]
 
 var WinCash:int = 300
 
@@ -33,7 +33,7 @@ var _spaceScene:String = "res://scenes/game/SpaceScene.tscn"
 
 var _menuScene:String = "res://scenes/game/menu.tscn"
 
-var _startCash:int = 200
+var _startCash:int = 0
 
 func _ready() -> void:
 	self.NewGame()
@@ -96,7 +96,4 @@ func IsFinalMission() -> bool:
 
 func ClearMission() -> void:
 	_missionName = STRING_NULL
-
-func AbortTheMission() -> void:
-	ClearMission()
 

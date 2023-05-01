@@ -28,10 +28,10 @@ func _ready() -> void:
 	_interfaceBaseScale = Interface.scale
 	_baseScale = self.scale
 
-func setLabelVisible(visible, collided) -> void:
+func setLabelVisible(visible_, collided) -> void:
 	var c:CharacterBody2D = collided as CharacterBody2D
 	if c != null:
-		self.deliveryLabel.visible = visible
+		self.deliveryLabel.visible = visible_
 
 func MissionIsForMe() -> bool:
 	return _gameManager.MissionInProgress() && _gameManager.MissionPlanetTarget() == _gameManager.PlanetPosition
